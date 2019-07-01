@@ -2,9 +2,10 @@
   "name": "gh-resource-templates",
   "version": "0.0.1",
   "description": "Github Resource Template ingests specific git directories to the Sinopia Server",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js"
   },
   "keywords": [
     "github",
@@ -16,7 +17,11 @@
   "author": "Jeremy Nelson",
   "license": "Apache-2.0",
   "dependencies": {
+    "@babel/runtime": "^7.4.2",
     "@octokit/rest": "^16.16.0",
+    "babel-cli": "^6.26.0",
+    "commander": "^2.19.0",
+    "config": "^3.0.1",
     "dotenv": "^6.2.0",
     "github-api": "^3.0.0",
     "sinopia_server": "^2.0.0"

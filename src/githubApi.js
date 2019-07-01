@@ -1,3 +1,4 @@
+// Copyright 2019 Stanford University see Apache2.txt for license
 
 require('dotenv').config()
 const Octokit = require('@octokit/rest')
@@ -10,11 +11,11 @@ const octokit = new Octokit ({
 // import { ApiClient, LDPContainer, Resource } from 'sinopia_server'
 
 
-const main = async () => {
+const getProfiles = async (profile) => {
   const sample_profiles = await octokit.repos.getContents(
     { owner: 'LD4P',
       repo: 'sinopia_sample_profiles',
-      path: '/profiles/v0.1.0/' })
+      path: '/profiles/v0.1.0/' }) // pass process.argvs
   sample_profiles.data.forEach(async row => {
     if (row.path.endsWith('.json')) {
       // console.log(`${row.name} - ${row.sha}`)
@@ -23,6 +24,7 @@ const main = async () => {
         repo: 'sinopia_sample_profiles',
         file_sha: row.sha
       })
+      // Iterate through profile and extract Resource
       // console.log(Object.keys(payload.data))
       let raw_json = new Buffer(payload.data.content, 'base64').toString('ascii')
       console.log(raw_json)
