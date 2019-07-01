@@ -18,7 +18,7 @@
   "dependencies": {
     "@octokit/rest": "^16.16.0",
     "dotenv": "^6.2.0",
-    "github-api": "^3.0.0",
+    "github-api": "^3.2.2",
     "sinopia_server": "^2.0.0"
   }
 }
